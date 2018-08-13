@@ -21,3 +21,14 @@ h1 {
   text-shadow: 2px 2px 4px #000000;
   font-size: 2em;
 }
+
+#bat {
+  height: 430px;
+  width: 300px;
+  background-image: url(../bloody-bat.jpg);
+  background-size:cover;
+  transform: rotate(70deg);
+  position: absolute;
+  top: 350px;
+  left: 40%;
+}
