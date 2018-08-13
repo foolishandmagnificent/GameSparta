@@ -1,0 +1,23 @@
+
+.container-fluid {
+  width: 100%;
+  height: 700px;
+  background-image: url(/Users/tech-a28x/coursework/GameSparta/Pictures/creepy-dirty-eerie-428396.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  border: 1px solid black;
+  background-size: 100%;
+  font-family: Montserrat, "Hanalei Fill", "Open Sans";
+}
+
+h1 {
+  color: white;
+  width: 100%;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  top: 30%;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 2em;
+}

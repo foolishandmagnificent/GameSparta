@@ -1,0 +1,58 @@
+
+/* .navbar {
+  letter-spacing: 0.8em;
+  background-color: black;
+  z-index: 9999;
+  border: 0;
+  font-size: 16px !important;
+  line-height: 1.42857143 !important;
+  letter-spacing: 4px;
+  border-radius: 0;
+  padding-top: 15px;
+  margin-bottom: 0;
+  letter-spacing: 5px;
+    } */
+
+.navbar-nav li a:hover {
+  color: white !important;
+}
+
+h1 {
+  color: white;
+  width: 100%;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  top: 30%;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 4em;
+}
+
+.container-fluid {
+  width: 100%;
+  height: 700px;
+  background-image: url(Pictures/backlit-creepy-dark-289367.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  border: 1px solid black;
+  background-size: 100%;
+  font-family: Montserrat, "Hanalei Fill", "Open Sans";
+}
+
+ul {
+  list-style: none;
+  color: white;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  margin: auto;
+  border: 1px solid black;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 3em;
+}
+
+a {
+      text-decoration: none;
+      color: white;
+}
