@@ -35,11 +35,16 @@ h1 {
   left: 40%;
 }
 
-.enemy {
+.img {
   background-image: url(../0.png);
   position: absolute;
   width: 100px;
   height: 100px;
   top: 100px;
   left: 550px;
+}
+
+.score {
+  color: white;
+
 }
