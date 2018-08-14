@@ -26,7 +26,6 @@ $(function (event){
       playGame = false;
       clearInterval(timer);
       /////its doing again and again the count!!!
-      $(document).fadeOut();
       }
     }, 1000);
 
@@ -41,7 +40,6 @@ $(function (event){
     // I want the bat to rotate
     //I want the monster to disappear
     $("enemy").click(function() {
-      ////Uncaught ReferenceError: enemy is not defined
       playerScore++;
       score.html("<b  class='score'> Score: " + playerScore + " </b>");
       $("enemy").remove();
