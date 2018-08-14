@@ -1,7 +1,29 @@
 $(function (event){
   //Put the code inside this
   // it gets the code ready
-
+      //MONSTER PART
+  var container = ["0"]; //i only have one picture now
+  var img = $(".img");
+  var highScore = 0; //highscore
+  //generate random position values for top
+  function generateRandomForArray() {
+    var num = Math.floor(Math.random() * 2);
+    return num;
+  }
+  function generateRandom() {
+    var num = Math.floor(Math.random() * (($(window).height() - 250) - 150 + 1) + 150);
+    return num;
+  }
+  //generate random positions value for left
+  function generateRandomLeft() {
+    var num = Math.floor(Math.random() * (($(window).width() - 250) - 100 + 1) + 100);
+    return num;
+  }
+  //random number generator to set size of characters
+  function generateSize() {
+    var num = Math.floor(Math.random() * (500 - 100 + 1) + 100);
+    return num;
+  }
   // variables I am gonna need
   //score
   var clearScore = $(".clearScore"); //use this when time is finished
@@ -13,11 +35,31 @@ $(function (event){
   //i want to store the score of each player, compare them after
   // timer
 
-  var timeLeft = 40; //Im giving the player 40s to play
+
+  var timeLeft = 20; //Im giving the player 40s to play
   //time out during the play
   var timer = setInterval(function(){
     if (timeLeft != 0) {
       timeLeft--;
+      //I want to take the number of score and record it
+      $("score").each(function(index){
+        $(this).data("score", index);
+      })
+
+      //Clicking on the body
+        // I want the bat to rotate
+        //I want the monster to disappear
+        //ONLY ONE CLICK FUNCTION
+        $(".enemy").click(function() {
+          console.log("hello")
+          playerScore++;
+          score.html("<b  class='score'> Score: " + playerScore + " </b>");
+          // setTimeout(myFunction, 300);
+          $(".enemy").remove();
+        //IF on monster : add +1 to the score, else: score stays the same
+          playerScore++;
+          score.html("<b  class='score'> Score: " + playerScore + " </b>");
+        })//end enemy click function
     }
     else if (timeLeft == 0){
       $(".img img:last-child").remove() //remove image of last enemy
@@ -26,58 +68,21 @@ $(function (event){
       playGame = false;
       clearInterval(timer);
       /////its doing again and again the count!!!
-      }
-    }, 1000);
+    }//end of else if
+  }, 1000);
 
-    //I want to take the number of score and record it
-    $("score").each(function(index){
-      $(this).data("score", index);
-    })
-
-
-  //Clicking on the body
-  document.body.addEventListener('click', function() {
-    // I want the bat to rotate
-    //I want the monster to disappear
-    $("enemy").click(function() {
-      playerScore++;
-      score.html("<b  class='score'> Score: " + playerScore + " </b>");
-      $("enemy").remove();
-    //IF on monster : add +1 to the score, else: score stays the same
-      playerScore++;
-      score.html("<b  class='score'> Score: " + playerScore + " </b>");
-      $(".img img:last-child").remove()
-    })
-  });
-
-    //MONSTER PART
-    var container = ["0"]; //i only have one picture now
-    //generate random position values for top
-    function generateRandomForArray() {
-      var num = Math.floor(Math.random() * 23);
-      return num;
-    }
-    function generateRandom() {
-      var num = Math.floor(Math.random() * (($(window).height() - 250) - 150 + 1) + 150);
-      return num;
-    }
-    //generate random positions value for left
-    function generateRandomLeft() {
-      var num = Math.floor(Math.random() * (($(window).width() - 250) - 100 + 1) + 100);
-      return num;
-    }
-    //random number generator to set size of characters
-    function generateSize() {
-      var num = Math.floor(Math.random() * (500 - 100 + 1) + 100);
-      return num;
-    }
+// make an array of [0 1 2]
+// randomArray to pick from the array inside the setinterval function so it calls a random
+//set interval
+// set to a variable
+//rename the Pictures to 0 1 2
 
     function setValue() {
-        if (playGame == true) { //if you're playing the game
+      console.log(generateRandomForArray());
           $(".img img:last-child").remove() //i want the last monster to disappear
           var num = container[generateRandomForArray()];
           var size = generateSize();
-          img.append("<img class='size' style='width:" + size + "px' src ='img/" + num + ".png'>");
+          img.append("<img class='size' style='width:" + size + "px' src ='../img/" + 0 + ".png'>");
           var left = generateRandomLeft();
           var top = generateRandom();
           img.last().css({
@@ -87,8 +92,9 @@ $(function (event){
             "width": size + "px",
             "height": size + "px"
           });
-        } //end of if playGame
       } //end of function setValue
+      setInterval(function(){ setValue(); }, 1000);
+
 
     // to restart the game
     $("#restart").on("click", function restart() {
