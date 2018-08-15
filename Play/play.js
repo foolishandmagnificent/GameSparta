@@ -5,13 +5,21 @@ $(function (event){
   var img = $(".img");
   var timer = $(".timer");
   var restart = $(".restart");
-  var highScore = 0; //highscore
+  var highScore = 0;
+  var playerscore = playerScore
+  var names = [];
+  //if statement to update highscore
+  var names = JSON.parse(localStorage.getItem('playerscore'));
+  if (names != null) {
+    highScore = names[names.length - 1];
+  }
 
+  var highScore = 0; //highscore
 
   function setValue() { //we're calling all the var we defined for the monsters
     // clearInterval(monster);
     console.log(playerScore); //return the score of the player on the console
-    console.log(generateRandomForArray());
+    generateRandomForArray();
         $(".img img:last-child").remove() //i want the last monster to disappear
         var num = container[generateRandomForArray()];
         var size = generateSize();
@@ -33,7 +41,8 @@ $(function (event){
     console.log("yes!")
     // playerScore++; //raise score
     playerScore++; //IF you click on monster, the score rise up
-    score.html("<b  class='score'> Score: " + playerScore + " </b>");
+    score.html("<b  class='playerscore'> Score: " + playerScore + " </b>");
+    // playerscore.html("<b  class='highscore'> High Score: " + highscore + " </b>");
     })//end enemy click function
 
   //random position values from top
@@ -74,7 +83,6 @@ $(function (event){
   }, 800)
 
   var timerInterval = setInterval(function(){
-    console.log("int")
     if (timeLeft != 0) {
       // console.log(timeLeft);
       timeLeft--;
@@ -104,7 +112,6 @@ $(function (event){
         // playGame = false;
         // window.clearInterval(timerInterval);
       }
-
 
 
     if (score === null) {
