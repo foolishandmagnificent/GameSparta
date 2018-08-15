@@ -66,29 +66,27 @@ $(function (event){
 
   var turn = 0; //who is playing
   //i want to store the score of each player, compare them after timer
-  var timeLeft = 4; //Im giving the player 20s to play
+  var timeLeft = 20; //Im giving the player 20s to play
 
   var monstInt = setInterval(function() {
     // console.log("running again and again  ")
     setValue();
-
-
-  }, 3000)
+  }, 800)
 
   var timerInterval = setInterval(function(){
     console.log("int")
     if (timeLeft != 0) {
       // console.log(timeLeft);
       timeLeft--;
-      // $(".playerScore").html(playerScore); //show the score
-      // $("score").each(function(index){
-      //   $(this).data("score", index); //record the score
+      $(".playerScore").html(playerScore); //show the score
+      $("score").each(function(index){
+        $(this).data("score", index)
+      }) //record the score
       // setValue();
       // })
       // monster = setInterval(function(){
       //   console.log("running again and again  ")
       // }, 5000);
-      // debugger;
       // $(".highScore").html(highScore); //show the score
 
     } else if (timeLeft == 0){
