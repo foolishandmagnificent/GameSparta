@@ -44,7 +44,6 @@ h1 {
   left: 550px;
 }
 
-.score {
+.playerscore, .highScore, .score {
   color: white;
-
 }

@@ -3,8 +3,39 @@ $(function (event){
   // it gets the code ready
   var container = ["0"]; //i only have one picture now
   var img = $(".img");
+  var timer = $(".timer");
   var restart = $(".restart");
   var highScore = 0; //highscore
+
+
+  function setValue() { //we're calling all the var we defined for the monsters
+    // clearInterval(monster);
+    console.log(playerScore); //return the score of the player on the console
+    console.log(generateRandomForArray());
+        $(".img img:last-child").remove() //i want the last monster to disappear
+        var num = container[generateRandomForArray()];
+        var size = generateSize();
+        img.append("<img class='size' style='width:" + size + "px' src ='../img/" + 0 + ".png'>");
+        var left = generateRandomLeft();
+        var top = generateRandom();
+        img.last().css({
+          "position": "absolute",
+          "top": top + "px",
+          "left": left + "px",
+          "width": size + "px",
+          "height": size + "px"
+        });
+    } //end of function setValue
+    //the monsters disappear after 1s
+
+
+  $(".img").click(function() {
+    console.log("yes!")
+    // playerScore++; //raise score
+    playerScore++; //IF you click on monster, the score rise up
+    score.html("<b  class='score'> Score: " + playerScore + " </b>");
+    })//end enemy click function
+
   //random position values from top
   function generateRandomForArray() {
     var num = Math.floor(Math.random() * 4);
@@ -30,55 +61,57 @@ $(function (event){
   var score = $(".score");
   var playGame = false; //only true when game is playing
   var playerScore = 0; // player's score at the beginning
+  var test = $("#test");
+
+
   var turn = 0; //who is playing
   //i want to store the score of each player, compare them after timer
-  var timeLeft = 20; //Im giving the player 20s to play
-  var timer = setInterval(function(){
+  var timeLeft = 4; //Im giving the player 20s to play
+
+  var monstInt = setInterval(function() {
+    // console.log("running again and again  ")
+    setValue();
+
+
+  }, 3000)
+
+  var timerInterval = setInterval(function(){
+    console.log("int")
     if (timeLeft != 0) {
+      // console.log(timeLeft);
       timeLeft--;
-      $(".playerScore").html(playerScore); //show the score
-      $("score").each(function(index){
-        $(this).data("score", index); //record the score
-      })
+      // $(".playerScore").html(playerScore); //show the score
+      // $("score").each(function(index){
+      //   $(this).data("score", index); //record the score
+      // setValue();
+      // })
+      // monster = setInterval(function(){
+      //   console.log("running again and again  ")
+      // }, 5000);
+      // debugger;
+      // $(".highScore").html(highScore); //show the score
 
-        $(".img").click(function() {
-          console.log("yes!")
-          playerScore++; //raise score
-          playerScore++; //IF you click on monster, the score rise up
-          score.html("<b  class='score'> Score: " + playerScore + " </b>");
-        })//end enemy click function
+    } else if (timeLeft == 0){
+      console.log("end of game flow");
+      clearInterval(timerInterval)
+      clearInterval(monstInt)
+        // stop();
+        // clearInterval(monstInt)
+      }//end of else if
+    }, 1000); //end of set interval
+
+      function stop() {
+        // $(".img img:last-child").remove() //remove image of last enemy
+        console.log("finish");
+        // playGame = false;
+        // window.clearInterval(timerInterval);
+      }
+
+
+
+    if (score === null) {
+      $('#test').html("").empty();
     }
-    else if (timeLeft == 0){
-      $(".img img:last-child").remove() //remove image of last enemy
-      console.log("finish");
-      playGame = false;
-      restart.click(function() {
-        location.reload(); //reload page
-      })
-      clearInterval(timer);
-    }//end of else if
-  }, 1000); //end of set interval
-
-
-    function setValue() { //we're calling all the var we defined for the monsters
-      console.log(playerScore); //return the score of the player on the console
-      console.log(generateRandomForArray());
-          $(".img img:last-child").remove() //i want the last monster to disappear
-          var num = container[generateRandomForArray()];
-          var size = generateSize();
-          img.append("<img class='size' style='width:" + size + "px' src ='../img/" + 0 + ".png'>");
-          var left = generateRandomLeft();
-          var top = generateRandom();
-          img.last().css({
-            "position": "absolute",
-            "top": top + "px",
-            "left": left + "px",
-            "width": size + "px",
-            "height": size + "px"
-          });
-      } //end of function setValue
-      setInterval(function(){ setValue(); }, 1000); //the monsters disappear after 1s
-
 
     // to restart the game
     $("#restart").on("click", function restart() {
