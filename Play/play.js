@@ -9,6 +9,8 @@ $(function (event){
   var turn = 0; //who is playing
   var playerscore = playerScore;
   var score = $("score");
+  var firstScore = $("firstScore")
+  var secondScore = $("secondScore")
   var firstName = $("firstName");
   var secondName = $("secondName");
   var score = JSON.parse(localStorage.getItem('playerscore'));
@@ -20,7 +22,7 @@ $(function (event){
         $(".img img:last-child").remove() //i want the last monster to disappear
         var num = container[generateRandomForArray()];
         var size = generateSize();
-        img.append("<img class='size' style='width:" + size + "px' src ='../img/" + 0 + ".png'>");
+        img.append("<img class='size' style='width:" + size + "px' src ='../img/" + 2 + ".png'>");
         var left = generateRandomLeft();
         var top = generateRandom();
         img.last().css({
@@ -72,7 +74,6 @@ $(function (event){
     setValue();
   }, 800)
 
-  debugger;
   $(".playerNames").html(firstName + " turn");
 
   var timerInterval = setInterval(function(){
