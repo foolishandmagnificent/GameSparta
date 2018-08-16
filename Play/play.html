@@ -16,24 +16,29 @@
     <div class="container-fluid">
       <h1>These things happen</h1>
         <div class="timer"></div>
-        <div class="score">
-          <p>score</p>
+        <div class="leaderboard">
+          <div class="player1">
+            <h4>Score player 1</h4>
+            <div class="score"></div>
+          </div>
+          <div class="player2">
+            <h4>Score player 2</h4>
+            <div class="score"></div>
+          </div>
+          <!-- <div class="highscore">
+            <p>High Score</p>
+          </div> -->
+          <!-- test id basically used for the local storage function to store high scores in broswer memory   -->
         </div>
-        <div class="highscore">
-          <p>High Score</p>
-        </div>
-        <!-- test id basically used for the local storage function to store high scores in broswer memory   -->
-        <div id="test">
-        </div>
-        <div class="playerNames">
+        <a class="center"><button id="button" class="restart "> Restart </button></a><br>
 
-        </div>
+      <div id="test">
+      </div>
+      <div class="playerNames"></div>
     </div>
     <div class="img size">
     </div>
-    <a class="center"><button id="button" class="restart "> Restart </button></a><br>
 
-    <script type="text/javascript" src="../playerNames.js"></script>
     <script type="text/javascript" src="play.js"> </script>
   </body>
 </html>

@@ -8,14 +8,11 @@ h1 {
   text-align: center;
   text-shadow: 2px 2px 4px #000000;
   font-size: 4em;
+  /* letter-spacing: 0.6em; */
 }
 
 input {
   color: black;
-}
-
-.menu {
-  top: 300px;
 }
 
 .container-fluid {
@@ -28,20 +25,32 @@ input {
   font-family: Montserrat, "Hanalei Fill", "Open Sans";
 }
 
+
 ul {
   list-style: none;
+  padding: 20px;
   color: white;
   display: block;
   text-align: center;
   text-transform: uppercase;
-  margin: auto;
+  margin-top: 80px;
   text-shadow: 2px 2px 4px #000000;
   font-size: 3em;
+}
+
+.btn-group-lg>.btn, .btn-lg
+{
+  background-color: black;
+  border-bottom-color: white;
 }
 
 a {
   text-decoration: none;
   color: white;
+}
+
+a:hover {
+  color: black;
 }
 
 .modal-header, .modal-body h4, .close {
@@ -50,6 +59,7 @@ a {
   text-align: center;
   font-size: 30px;
 }
+
 .modal-footer {
   background-color: #f9f9f9;
 }

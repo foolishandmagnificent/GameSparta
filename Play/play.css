@@ -1,4 +1,3 @@
-
 .container-fluid {
   width: 100%;
   height: 700px;
@@ -8,6 +7,7 @@
   border: 1px solid black;
   background-size: 100%;
   font-family: Montserrat, "Hanalei Fill", "Open Sans";
+  letter-spacing: 0.6em;
 }
 
 h1 {
@@ -19,7 +19,6 @@ h1 {
   top: 30%;
   text-align: center;
   text-shadow: 2px 2px 4px #000000;
-  font-size: 2em;
 }
 
 
@@ -32,6 +31,21 @@ h1 {
   left: 550px;
 }
 
-.playerscore, .highscore, .score, .playerNames {
+.playerscore, .highscore, .score, .player1, .player2 {
   color: white;
+  font-size: 1.5em;
+  margin: auto;
+  display: inline-block;
+  font-family: Montserrat, "Hanalei Fill", "Open Sans";
+}
+
+.playerNames {
+  float: center;
+}
+
+.player1 {
+  float: left;
+}
+.player2 {
+  float: right;
 }

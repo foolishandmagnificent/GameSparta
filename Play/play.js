@@ -1,9 +1,10 @@
 $(function (event){
   //Put the code inside this
   // it gets the code ready
-  var container = ["0"]; //i only have one picture now
+  var container = ["0", "2", "0", "2"]; //i only have one picture now
   var img = $(".img");
   var timer = $(".timer");
+  var timerInterval = $("timerInterval");
   var restart = $(".restart");
   var highScore = 0;
   var turn = 0; //who is playing
@@ -22,7 +23,7 @@ $(function (event){
         $(".img img:last-child").remove() //i want the last monster to disappear
         var num = container[generateRandomForArray()];
         var size = generateSize();
-        img.append("<img class='size' style='width:" + size + "px' src ='../img/" + 2 + ".png'>");
+        img.append("<img class='size' style='width:" + size + "px' src ='../img/" + num + ".png'>");
         var left = generateRandomLeft();
         var top = generateRandom();
         img.last().css({
@@ -74,7 +75,7 @@ $(function (event){
     setValue();
   }, 800)
 
-  $(".playerNames").html(firstName + " turn");
+  $(".playerNames").html("player 1 turn");
 
   var timerInterval = setInterval(function(){
     if (timeLeft != 0) {
@@ -83,21 +84,24 @@ $(function (event){
       $("score").each(function(index){
         $(this).data("score", index)
       })
-      $(".highScore").html(highScore); //show the score
-
+      // $(".highScore").html(highScore); //show the score
     } else if (timeLeft == 0){
       console.log("end of game flow");
       turn ++;
-      $(".playerNames").html(secondName + " turn");
+      $(".playerNames").html("player 2 turn");
       clearInterval(timerInterval)
       clearInterval(monstInt)
       }
     }, 1000); //end of set interval
+    //
+    // if (timeLeft == 0){
 
-      function stop() {
-        console.log("finish");
+  document.getElementById("button").addEventListener("click", setInterval);
+    new timerInterval;
+
+    function stop() {
+      console.log("finish");
       }
-
 
     if (score === null) {
       $('#test').html("").empty();
