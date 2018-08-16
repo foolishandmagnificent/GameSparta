@@ -32,6 +32,6 @@ h1 {
   left: 550px;
 }
 
-.playerscore, .highscore, .score {
+.playerscore, .highscore, .score, .playerNames {
   color: white;
 }
