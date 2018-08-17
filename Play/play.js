@@ -19,7 +19,6 @@ $(function (event){
   var score = JSON.parse(localStorage.getItem('playerscore'));
   var highScore = 0; //highscore
 
-// TO WORK ON
   //localStorage.setItem("player1score", "player2score");
    function displayScore() {
      for (var i = 1; i < 2; i++) {
@@ -27,11 +26,11 @@ $(function (event){
      }
    }
      if (localStorage.getItem(1)>localStorage.getItem(2)) {
-       $("#test").empty().text("Player 1 wins");
-       $("#test").show();
+       $("#leaderboard").empty().text("Player 1 wins");
+       $("#leaderboard").show();
      }else if (localStorage.getItem(1)<localStorage.getItem(2)) {
-       $("#test").empty().text("Player 2 wins");
-       $("#test").show();
+       $("#leaderboard").empty().text("Player 2 wins");
+       $("#leaderboard").show();
        }
      displayScore();
 
@@ -86,7 +85,7 @@ $(function (event){
 
 
   //i want to store the score of each player, compare them after timer
-  var timeLeft = 5; //Im giving the player 20s to play
+  var timeLeft = 10; //Im giving the player 10s to play
 
   var monstInt = setInterval(function() {
     setValue();
@@ -111,13 +110,35 @@ $(function (event){
       var player2score = $(".playerNames").html("player 2 turn");
       clearInterval(timerInterval)
       clearInterval(monstInt)
+      timeLeft = 10; //Im giving the player 10s to play
       }
     }, 1000); //end of set interval
 
     //
     // if (timeLeft == 0){
 
-  document.getElementById("button").addEventListener("click", timerInterval);
+    // var timeLeft = 10; //Im giving the player 10s to play
+
+  document.getElementById("button").addEventListener("click", function() {
+    var monstInt2 = setInterval(function() {
+      setValue();
+    }, 800);
+    var timerInterval2 = setInterval(function(){
+      if (timeLeft != 0) {
+        timeLeft--;
+        localStorage.setItem("player2score", playerscore);
+        var player2score = $(".player2score").html(player2score); //show the score
+        $("score").each(function(index){
+          $(this).data("score", index)
+        score.html("<b  class='player2score'> Score: " + player2score + " </b>");
+      })
+      } else if (timeLeft == 0){
+        console.log("game finished");
+        clearInterval(timerInterval2);
+        clearInterval(monstInt2);
+      } //end of else if
+    }, 1000); //end if set interval
+  });
 
 
     function stop() {
@@ -129,7 +150,7 @@ $(function (event){
     // }
 
     // to restart the game
-    $("restart").on("click", function restart() {
-      location.reload();
-    })
+    // $("restart").on("click", function restart() {
+    //   location.reload();
+    // })
   }); //  end of fonction event
