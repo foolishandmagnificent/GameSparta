@@ -1,0 +1,37 @@
+.container-fluid {
+  width: 100%;
+  height: 700px;
+  background-image: url(../Pictures/dark-fairy-tale-fantasy-42263.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-size: 100%;
+  font-family: Montserrat, "Hanalei Fill", "Open Sans";
+  letter-spacing: 0.6em;
+}
+
+h1 {
+  color: white;
+  width: 100%;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  top: 30%;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+
+h2, p {
+  color: white;
+  display: block;
+  width: 40%;
+  letter-spacing: 0.1em;
+  margin-left: 10%;
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 80px;
+  text-shadow: 2px 2px 4px #000000;
+  font-family: Montserrat, "Hanalei Fill", "Open Sans";
+
+}
