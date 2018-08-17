@@ -10,12 +10,8 @@ $(function (event){
   var turn = 0; //who is playing
   var playerscore = playerScore;
   var player1score = player1score;
-  var player2score = player2score;
+  var player2score = 0;
   var score = $("score");
-  var firstScore = $("firstScore")
-  var secondScore = $("secondScore")
-  var firstName = $("firstName");
-  var secondName = $("secondName");
   var score = JSON.parse(localStorage.getItem('playerscore'));
   var highScore = 0; //highscore
 
@@ -107,7 +103,7 @@ $(function (event){
     } else if (timeLeft == 0){
       console.log("end of game flow");
       turn ++;
-      var player2score = $(".playerNames").html("player 2 turn");
+      $(".playerNames").html("player 2 turn");
       clearInterval(timerInterval)
       clearInterval(monstInt)
       timeLeft = 10; //Im giving the player 10s to play
@@ -126,12 +122,13 @@ $(function (event){
     var timerInterval2 = setInterval(function(){
       if (timeLeft != 0) {
         timeLeft--;
-        localStorage.setItem("player2score", playerscore);
+        localStorage.setItem("player2score", player2score);
         var player2score = $(".player2score").html(player2score); //show the score
-        $("score").each(function(index){
-          $(this).data("score", index)
-        score.html("<b  class='player2score'> Score: " + player2score + " </b>");
-      })
+        var player2score = $(".playerNames").html("player 2 turn");        // $("score").each(function(index){
+        //   $(this).data("score", index)
+        // score.html("<b  class='player2score'> Score: " + player2score + " </b>");
+        // })
+        $(".player2score").html("Score: " + player2score);
       } else if (timeLeft == 0){
         console.log("game finished");
         clearInterval(timerInterval2);
@@ -144,13 +141,4 @@ $(function (event){
     function stop() {
       console.log("finish");
       }
-    //
-    // if (score === null) {
-    //   $('#test').html("").empty();
-    // }
-
-    // to restart the game
-    // $("restart").on("click", function restart() {
-    //   location.reload();
-    // })
   }); //  end of fonction event
