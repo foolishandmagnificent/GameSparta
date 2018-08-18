@@ -22,9 +22,8 @@ input {
   background-repeat: no-repeat;
   background-size:cover;
   background-size: 100%;
-  font-family: Montserrat, "Hanalei Fill", "Open Sans";
+  font-family: "Inknut Antiqua", "Hanalei Fill", "Open Sans";
 }
-
 
 ul {
   list-style: none;
@@ -33,9 +32,10 @@ ul {
   display: block;
   text-align: center;
   text-transform: uppercase;
-  margin-top: 80px;
+  margin-top: 100px;
   text-shadow: 2px 2px 4px #000000;
   font-size: 3em;
+  font-family: Nosifer;
 }
 
 .btn-group-lg>.btn, .btn-lg

@@ -1,7 +1,7 @@
 $(function (event){
   //Put the code inside this
   // it gets the code ready
-  var container = ["0", "2", "0", "2"]; //i only have one picture now
+  var container = ["0", "2", "0", "2"];
   var img = $(".img");
   var timer = $(".timer");
   var timerInterval = $("timerInterval");
@@ -9,26 +9,11 @@ $(function (event){
   var highScore = 0;
   var turn = 0; //who is playing
   var playerscore = playerScore;
-  var player1score = player1score;
+  // var player1score = player1score;
   var player2score = 0;
   var score = $("score");
   var score = JSON.parse(localStorage.getItem('playerscore'));
   var highScore = 0; //highscore
-
-  //localStorage.setItem("player1score", "player2score");
-   function displayScore() {
-     for (var i = 1; i < 2; i++) {
-     $("#test").append("<li>"+localStorage.getItem(i)+"</li>");
-     }
-   }
-     if (localStorage.getItem(1)>localStorage.getItem(2)) {
-       $("#leaderboard").empty().text("Player 1 wins");
-       $("#leaderboard").show();
-     }else if (localStorage.getItem(1)<localStorage.getItem(2)) {
-       $("#leaderboard").empty().text("Player 2 wins");
-       $("#leaderboard").show();
-       }
-     displayScore();
 
   function setValue() { //we're calling all the var we defined for the monsters
     console.log(playerScore); //return the score of the player on the console
@@ -50,7 +35,7 @@ $(function (event){
 
   $(".img").click(function() {
     playerScore++; //IF you click on monster, the score rise up
-    })//end enemy click function
+    })
 
   //random position values from top
   function generateRandomForArray() {
@@ -93,17 +78,11 @@ $(function (event){
   var timerInterval =  setInterval(function(){
     if (timeLeft != 0) {
       timeLeft--;
-      var player1score = $(".player1score").html(playerScore); //show the score
-      localStorage.setItem("player1score", player1score);
-      $("score").each(function(index){
-        $(this).data("score", index)
-      score.html("<b  class='playerscore1'> Score: " + playerScore1 + " </b>");
-      })
-      // $(".highScore").html(highScore); //show the score
+      $(".player1score").html(playerScore); //show the score of the first player
     } else if (timeLeft == 0){
       console.log("end of game flow");
-      turn ++;
-      $(".playerNames").html("player 2 turn");
+      turn ++; //switch to next player
+      $(".playerNames").html("player 2 turn"); //return whom turn it is
       clearInterval(timerInterval)
       clearInterval(monstInt)
       timeLeft = 10; //Im giving the player 10s to play
@@ -111,9 +90,10 @@ $(function (event){
     }, 1000); //end of set interval
 
     //
-    // if (timeLeft == 0){
+  // var player1score = playerScore;
+  localStorage.setItem("player1score", playerScore);
+  var need = localStorage.getItem("player1score");
 
-    // var timeLeft = 10; //Im giving the player 10s to play
 
   document.getElementById("button").addEventListener("click", function() {
     var monstInt2 = setInterval(function() {
@@ -122,13 +102,7 @@ $(function (event){
     var timerInterval2 = setInterval(function(){
       if (timeLeft != 0) {
         timeLeft--;
-        localStorage.setItem("player2score", player2score);
-        var player2score = $(".player2score").html(player2score); //show the score
-        var player2score = $(".playerNames").html("player 2 turn");        // $("score").each(function(index){
-        //   $(this).data("score", index)
-        // score.html("<b  class='player2score'> Score: " + player2score + " </b>");
-        // })
-        $(".player2score").html("Score: " + player2score);
+        $(".player2score").html("Score: " + (playerScore-need));
       } else if (timeLeft == 0){
         console.log("game finished");
         clearInterval(timerInterval2);
