@@ -1,19 +1,21 @@
 $(function (event){
-  //Put the code inside this
-  // it gets the code ready
-  var container = ["0", "2", "0", "2"];
+  var container = ["0", "2", "0", "2"]; //put the same image multiple times to make it more rando;
   var img = $(".img");
   var timer = $(".timer");
   var timerInterval = $("timerInterval");
   var restart = $(".restart");
   var highScore = 0;
   var turn = 0; //who is playing
-  var playerscore = playerScore;
-  // var player1score = player1score;
   var player2score = 0;
   var score = $("score");
-  var score = JSON.parse(localStorage.getItem('playerscore'));
-  var highScore = 0; //highscore
+  // variables I am gonna need
+  var clearScore = $(".clearScore"); //use this when time is finished
+  var score = $(".score");
+  var playGame = false; //only true when game is playing
+  var playerScore = 0; // player's score at the beginning
+  var test = $("#test");
+
+
 
   function setValue() { //we're calling all the var we defined for the monsters
     console.log(playerScore); //return the score of the player on the console
@@ -57,13 +59,6 @@ $(function (event){
     var num = Math.floor(Math.random() * (500 - 100 + 1) + 100);
     return num;
   }
-  // variables I am gonna need
-  var clearScore = $(".clearScore"); //use this when time is finished
-  var score = $(".score");
-  var playGame = false; //only true when game is playing
-  var playerScore = 0; // player's score at the beginning
-  var test = $("#test");
-
 
   //i want to store the score of each player, compare them after timer
   var timeLeft = 10; //Im giving the player 10s to play
@@ -78,7 +73,7 @@ $(function (event){
   var timerInterval =  setInterval(function(){
     if (timeLeft != 0) {
       timeLeft--;
-      $(".player1score").html(playerScore); //show the score of the first player
+      $(".player1score").html("Score : " + playerScore); //show the score of the first player
     } else if (timeLeft == 0){
       console.log("end of game flow");
       turn ++; //switch to next player
@@ -89,20 +84,19 @@ $(function (event){
       }
     }, 1000); //end of set interval
 
-    //
-  // var player1score = playerScore;
-  localStorage.setItem("player1score", playerScore);
-  var need = localStorage.getItem("player1score");
-
 
   document.getElementById("button").addEventListener("click", function() {
+    var playerScore = 0;
+    $(".img").click(function() {
+      playerScore++; //IF you click on monster, the score rise up
+      })
     var monstInt2 = setInterval(function() {
       setValue();
     }, 800);
     var timerInterval2 = setInterval(function(){
       if (timeLeft != 0) {
         timeLeft--;
-        $(".player2score").html("Score: " + (playerScore-need));
+        $(".player2score").html("Score: " + playerScore);
       } else if (timeLeft == 0){
         console.log("game finished");
         clearInterval(timerInterval2);
