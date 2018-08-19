@@ -1,5 +1,5 @@
 $(function (event){
-  var container = ["0", "2", "0", "2"]; //put the same image multiple times to make it more rando;
+  var container = ["4", "2", "3", "0", "2", "0", "4"]; //put the same image multiple times to make it more rando;
   var img = $(".img");
   var timer = $(".timer");
   var timerInterval = $("timerInterval");
@@ -41,7 +41,7 @@ $(function (event){
 
   //random position values from top
   function generateRandomForArray() {
-    var num = Math.floor(Math.random() * 4);
+    var num = Math.floor(Math.random() * 6);
     //put all the images in img folder and name them 0 1 2 3
     return num;
   }
