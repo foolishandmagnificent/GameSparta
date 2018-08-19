@@ -1,13 +1,37 @@
-
 .container-fluid {
   width: 100%;
-  height: 700px;
-  background-image: url(/Users/tech-a28x/coursework/GameSparta/Pictures/creepy-dirty-eerie-428396.jpg);
+  height: 730px;
+  background-image: url(../Pictures/creepy-dirty-eerie-428396.jpg);
   background-repeat: no-repeat;
   background-size:cover;
-  border: 1px solid black;
   background-size: 100%;
-  font-family: Montserrat, "Hanalei Fill", "Open Sans";
+  font-family: "Inknut Antiqua", "Hanalei Fill", "Open Sans";
+  letter-spacing: 0.6em;
+}
+
+body {
+  cursor: url(../action.png), auto;
+  overflow: hidden;
+}
+
+.player1 {
+  background-image: url(../blood.png);
+  background-size:cover;
+  background-size: 100%;
+  width: 450px;
+  height: 200px;
+}
+
+.player2 {
+  background-image: url(../blood2.png);
+  background-size:cover;
+  background-size: 100%;
+  height: 250px;
+}
+
+#button {
+  float: right;
+  margin-right: 200px;
 }
 
 h1 {
@@ -16,8 +40,46 @@ h1 {
   display: block;
   text-align: center;
   text-transform: uppercase;
+  font-family: "Inknut Antiqua", "Hanalei Fill", "Open Sans";
   top: 30%;
   text-align: center;
   text-shadow: 2px 2px 4px #000000;
-  font-size: 2em;
+}
+
+
+.img {
+  background-image: url(../0.png);
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 100px;
+  left: 550px;
+}
+
+.playerscore, .highscore, .score, .player1, .player2, .player1score, .player2score {
+  color: white;
+  font-size: 1.5em;
+  margin: auto;
+  display: inline-block;
+  font-family: "Inknut Antiqua", "Hanalei Fill", "Open Sans";
+}
+
+.playerNames {
+  float: center;
+}
+
+.player1 {
+  float: left;
+}
+.player2 {
+  float: right;
+}
+
+#button {
+  margin: auto;
+  background-color: black;
+  color: white;
+  font-size: 1.3em;
+  font-family: Nosifer;
+  padding: 2px;
 }

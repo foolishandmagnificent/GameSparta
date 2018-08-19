@@ -2,8 +2,11 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <!-- bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua|Nosifer" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <title>Game - These things happen</title>
   </head>
@@ -11,16 +14,51 @@
 
     <div class="container-fluid">
       <h1>These things happen</h1>
-        <div class="menu">
-          <ul>
-            <li><a href="Play/play.html">Play</a></li>
-            <li><a href="Instructions/instructions.html">Instructions</a></li>
-            <li><a href="play.html">Artwork</a></li>
-          </ul>
+
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 story">
+
+            <p>It was a small town.</p> </br>
+            <p>Bloombury. 8500 inhabitants.</p> </br>
+            <p>I was going to the pub with my mates on Friday night... </p></br>
+            <p><strong>And then it all changed</strong></p>
+
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="menu">
+              <ul>
+                <li> <a href="Play/play.html">Play</a></li>
+              <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Instructions</button>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">Instructions <!-- end of modal header -->
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <div class="modal-body">
+                            <p>You have 20 seconds to shoot as much zombie as possible.</p>
+                            <p>Save your life</p>
+                          </div> <!-- end of modal body -->
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div> <!-- end of modal footer -->
+                      </div>
+                    </div> <!-- end of modal content -->
+                  </div> <!-- end of modal dialog -->
+                </div> <!-- end of modal dialog -->
+                <li><a href="artwork/artwork.html">Artwork</a></li>
+              </ul>
+            </div> <!-- end of menu  -->
+
+          </div>
         </div>
+        <audio src="StrangerThings.mp3" type="audio/mpeg" autoplay loop>
+        </audio>
 
+      <script type="text/javascript" src="playerNames.js">
+      </script>
     </div>
-
-
   </body>
 </html>
