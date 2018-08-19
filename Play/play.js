@@ -4,11 +4,8 @@ $(function (event){
   var timer = $(".timer");
   var timerInterval = $("timerInterval");
   var restart = $(".restart");
-  var highScore = 0;
   var turn = 0; //who is playing
-  var player2score = 0;
   var score = $("score");
-  // variables I am gonna need
   var clearScore = $(".clearScore"); //use this when time is finished
   var score = $(".score");
   var playGame = false; //only true when game is playing
@@ -35,6 +32,7 @@ $(function (event){
         });
     } //end of function setValue
 
+
   $(".img").click(function() {
     playerScore++; //IF you click on monster, the score rise up
     })
@@ -60,34 +58,31 @@ $(function (event){
     return num;
   }
 
-  //i want to store the score of each player, compare them after timer
-  var timeLeft = 20; //Im giving the player 10s to play
+  var timeLeft = 20; //Im giving the player 20s to play
 
   var monstInt = setInterval(function() {
     setValue();
-  }, 800)
-
-  $(".playerNames").html("player 1 turn");
+  }, 800) //every 0.8 a monster pop up
 
 
   var timerInterval =  setInterval(function(){
     if (timeLeft != 0) {
       timeLeft--;
-      $(".timer1").html("Timer : " + timeLeft);
+      $(".timer1").html("Timer : " + timeLeft); //display the timer going down
       $(".player1score").html("Score : " + playerScore); //show the score of the first player
     } else if (timeLeft == 0){
       console.log("end of game flow");
+      $("#button").css("display", "inline"); //show the button to switch to player2
       turn ++; //switch to next player
-      $(".playerNames").html("player 2 turn"); //return whom turn it is
       clearInterval(timerInterval)
       clearInterval(monstInt)
-      timeLeft = 10; //Im giving the player 10s to play
       }
     }, 1000); //end of set interval
 
 
   document.getElementById("button").addEventListener("click", function() {
-    var playerScore = 0;
+    var playerScore = 0; // re-initialize the score
+    var timeLeft = 20;
     $('.container-fluid').css("background-image", "url(../Pictures/street.jpg)");
     $(".img").click(function() {
       playerScore++; //IF you click on monster, the score rise up
