@@ -15,7 +15,7 @@ $(function (event){
   var playerScore = 0; // player's score at the beginning
   var test = $("#test");
 
-
+//add a ticktack effect with timeleft
 
   function setValue() { //we're calling all the var we defined for the monsters
     console.log(playerScore); //return the score of the player on the console
@@ -61,7 +61,7 @@ $(function (event){
   }
 
   //i want to store the score of each player, compare them after timer
-  var timeLeft = 10; //Im giving the player 10s to play
+  var timeLeft = 20; //Im giving the player 10s to play
 
   var monstInt = setInterval(function() {
     setValue();
@@ -73,6 +73,7 @@ $(function (event){
   var timerInterval =  setInterval(function(){
     if (timeLeft != 0) {
       timeLeft--;
+      $(".timer1").html("Timer : " + timeLeft);
       $(".player1score").html("Score : " + playerScore); //show the score of the first player
     } else if (timeLeft == 0){
       console.log("end of game flow");
@@ -87,6 +88,7 @@ $(function (event){
 
   document.getElementById("button").addEventListener("click", function() {
     var playerScore = 0;
+    $('.container-fluid').css("background-image", "url(../Pictures/street.jpg)");
     $(".img").click(function() {
       playerScore++; //IF you click on monster, the score rise up
       })
@@ -96,6 +98,7 @@ $(function (event){
     var timerInterval2 = setInterval(function(){
       if (timeLeft != 0) {
         timeLeft--;
+        $(".timer2").html("Timer : " + timeLeft);
         $(".player2score").html("Score: " + playerScore);
       } else if (timeLeft == 0){
         console.log("game finished");
