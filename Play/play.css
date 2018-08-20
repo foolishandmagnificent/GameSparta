@@ -1,0 +1,88 @@
+.container-fluid {
+  width: 100%;
+  height: 730px;
+  background-image: url(../Pictures/creepy-dirty-eerie-428396.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 100%;
+  font-family: "Inknut Antiqua", "Hanalei Fill", "Open Sans";
+  letter-spacing: 0.4em;
+}
+
+#modal {
+  display: none;
+}
+
+body {
+  cursor: url(../action.png), auto;
+  overflow: hidden;
+}
+
+.player1 {
+  background-image: url(../blood.png);
+  background-size:cover;
+  background-size: 100%;
+  width: 450px;
+  height: 200px;
+}
+
+.player2 {
+  background-image: url(../blood2.png);
+  background-size:cover;
+  background-size: 100%;
+  height: 350px;
+  width: 250px;
+  overflow: hidden;
+}
+
+h1, a, a:hover {
+  color: white;
+  width: 100%;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Inknut Antiqua", "Hanalei Fill", "Open Sans";
+  top: 30%;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+
+.img {
+  background-image: url(../0.png);
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 100px;
+  left: 550px;
+}
+
+.playerscore, .highscore, .score, .player1, .player2, .player1score, .player2score {
+  color: white;
+  font-size: 1.5em;
+  margin: auto;
+  display: inline-block;
+  font-family: "Inknut Antiqua", "Hanalei Fill", "Open Sans";
+}
+
+.playerNames {
+  float: center;
+}
+
+.player1 {
+  float: left;
+}
+.player2 {
+  float: right;
+}
+
+#button {
+  background-color: black;
+  color: white;
+  font-size: 1.3em;
+  font-family: Nosifer;
+  padding: 2px;
+  float: right;
+  margin-right: auto;
+  display: none;
+}
